@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     private var stringa_gps:String = "non è stato rilevato nessun spostamento"
     private var stringa_gps_x:String="01"
     private var stringa_gps_y:String="01"
-    var archivio_coordinate=Preferenze(MainApplication.appContext)
+    lateinit var archivio_coordinate:Preferenze
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String?>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(org.altervista.ultimaprovaprimadi.ciromelody.incheviasono.R.layout.activity_main)
-
+        archivio_coordinate=Preferenze(applicationContext)
         tx_coordinate_gps=findViewById(R.id.tx_coordinate_gps)
         bps_button=findViewById(R.id.button)
         button_memorizza = findViewById(R.id.bn_memorizza_posizione)
